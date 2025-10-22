@@ -29,7 +29,7 @@ LRUIPVRP::LRUIPVRP(const Params &p)
     numWays(p.numWays),
     count(0),
     currentPositionVector(nullptr),
-    IPV{0, 0, 1, 0, 3, 0, 1, 2, 1, 0, 5, 1, 0, 0, 1, 11, 13}
+    IPV{0, 0, 1, 0, 3, 0, 3, 2, 1, 0, 5, 1, 0, 0, 4, 11, 8}
 {
   // Verify that IPV has the correct size (numWays + 1)
   // For a 16-way cache, IPV should have 17 elements
