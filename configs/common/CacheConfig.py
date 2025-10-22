@@ -121,6 +121,7 @@ def config_cache(options, system):
         system.l2 = l2_cache_class(clk_domain=system.cpu_clk_domain,
                                    **_get_cache_opts('l2', options))
 
+        system.l2.replacement_policy = eval(options.repl_policy)
         system.tol2bus = L2XBar(clk_domain = system.cpu_clk_domain)
         system.l2.cpu_side = system.tol2bus.master
         system.l2.mem_side = system.membus.slave
@@ -133,6 +134,8 @@ def config_cache(options, system):
             icache = icache_class(**_get_cache_opts('l1i', options))
             dcache = dcache_class(**_get_cache_opts('l1d', options))
 
+            icache.replacement_policy = eval(options.repl_policy)
+            dcache.replacement_policy = eval(options.repl_policy)
             # If we have a walker cache specified, instantiate two
             # instances here
             if walk_cache_class:

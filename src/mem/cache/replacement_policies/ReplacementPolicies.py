@@ -100,3 +100,9 @@ class WeightedLRURP(BaseReplacementPolicy):
     type = "WeightedLRURP"
     cxx_class = "ReplacementPolicy::WeightedLRU"
     cxx_header = "mem/cache/replacement_policies/weighted_lru_rp.hh"
+
+class LRUIPVRP(BaseReplacementPolicy): 
+    type = 'LRUIPVRP'
+    cxx_class = 'ReplacementPolicy::LRUIPVRP'
+    cxx_header = "mem/cache/replacement_policies/lru_ipv.hh" 
+    numWays = Param.Int(Parent.assoc, "Set associativity")
